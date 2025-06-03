@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>jardimnordestino</title>
+  <link rel= "icon" type= "image/png" href= "https://static.vecteezy.com/system/resources/previews/000/571/898/original/plant-icon-vector.jpg" ><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jardim Nordestino</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>JARDIM NORDESTINO</h1>
+  <div class="btn-container">
+    <button onclick="showPlants()">Acessar Plantas</button>
+    <button onclick="toggleDifficultyOptions()">Teste seu conhecimento, jogue agora!</button>
+  </div>
+  <footer id="footerDev" style="background-color: #388e3c; color: white; padding: 10px 0; margin: 30px auto 0; text-align: center; max-width: 500px; border-radius: 10px;">
+  <h2 style="font-size: 20px; margin-bottom: 10px;">Desenvolvedores:</h2>
+  <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+    <a href="https://github.com/alicertx" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <img src="https://github.com/alicertx.png" alt="alicertx" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid white;">
+      <span style="font-size: 16px;">alicertx</span>
+    </a>
+    <a href="https://github.com/cleytooliveira" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <img src="https://github.com/cleytooliveira.png" alt="cleytooliveira" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid white;">
+      <span style="font-size: 16px;">cleytooliveira</span>
+    </a>
+  </div>
+</footer>
+  
+  <div id="difficultyOptions" class="difficulty-container">
+    <button onclick="startQuiz('facil')">Fácil</button>
+    <button onclick="startQuiz('medio')">Médio</button>
+    <button onclick="startQuiz('dificil')">Difícil</button>
+  </div>
+  <div id="quizContainer" style="display: none;"></div>
+
+  <div class="cards-container" id="plantCards">
+    <!-- Exemplo de card -->
+    <div class="card">
+      <img src="https://services.meteored.com/img/article/aloe-vera-nuestro-aliado-beneficios-resiste-crisis-ambiental-cambio-climatico-aruba-sequia-fotosintesis-1725857403919_512.jpeg" alt="Babosa">
+      <h3>Babosa</h3>
+      <p><strong>Nome científico:</strong>Aloe vera</h3>
+      <p><strong>Características:</strong> Folhas suculentas e espinhosas.</p>
+      <p><strong>Uso medicinal:</strong> Cicatrizante e hidratante.</p>
+    </div>
+    <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6tdRA0o8du44YZwb1QmsBZCSIk5Jz6XMO3nPTqlHB4fnY79MBmvLTNcyFt3W3Xb-QCJs&usqp=CAU" alt="Hortelã">
+  <h3>Hortelã</h3>
+  <p><strong>Nome científico:</strong> Mentha spicata</p>
+  <p><strong>Características:</strong> Folhas verdes e aromáticas.</p>
+  <p><strong>Uso medicinal:</strong> Alívio de problemas digestivos e resfriados.</p>
+</div><div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoeHBaLnsKma5d3Ufj1RfG4ZSg5yxNAYI2hWgE65DZXBRBJdVOjRU2CEgMbSrs-sSHOO0&usqp=CAU" alt="Alecrim">
+  <h3>Alecrim</h3>
+  <p><strong>Nome científico:</strong> Rosmarinus officinalis</p>
+  <p><strong>Características:</strong> Folhas finas com aroma intenso.</p>
+  <p><strong>Uso medicinal:</strong> Estimulante para memória e circulação.</p>
+</div><div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0pBouOhE3bC6VioHS6gIb9S4kweyFtZazE7h9lfdkq7_HLAhbr0zk_L6-nSehkSKIGiM&usqp=CAU" alt="Camomila">
+  <h3>Camomila</h3>
+  <p><strong>Nome científico:</strong> Matricaria chamomilla</p>
+  <p><strong>Características:</strong> Flores pequenas, brancas, com miolo amarelo.</p>
+  <p><strong>Uso medicinal:</strong> Calmante, analgésico e antiespasmódico.</p>
+</div><div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq51EdJnKUXFgBXly5tdtm1m6yrRwMj3G2IQ&s" alt="Boldo">
+  <h3>Boldo</h3>
+  <p><strong>Nome científico:</strong> Peumus boldus</p>
+  <p><strong>Características:</strong> Folhas verdes, rugosas e aromáticas.</p>
+  <p><strong>Uso medicinal:</strong> Auxilia na digestão e problemas hepáticos.</p>
+</div><div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIiQKLn0hgHVkCl_C166v9eDguociAtZuo9Q&s" alt="Capim-santo">
+  <h3>Capim-santo</h3>
+  <p><strong>Nome científico:</strong> Cymbopogon citratus</p>
+  <p><strong>Características:</strong> Folhas longas e finas, com aroma de limão.</p>
+  <p><strong>Uso medicinal:</strong> Calmante natural e digestivo.</p>
+</div><div class="card">
+  <img src="https://cdn.awsli.com.br/1982/1982052/produto/138469239/lavandula-dentata-10-5yjwvef35j.jpg" alt="Lavanda">
+  <h3>Lavanda</h3>
+  <p><strong>Nome científico:</strong> Lavandula angustifolia</p>
+  <p><strong>Características:</strong> Pequenas flores roxas, muito aromáticas.</p>
+  <p><strong>Uso medicinal:</strong> Calmante e antisséptico natural.</p>
+</div><div class="card">
+  <img src="https://cdn.awsli.com.br/600x450/2446/2446161/produto/170638401/ff2986c9c8.jpg" alt="Arruda">
+  <h3>Arruda</h3>
+  <p><strong>Nome científico:</strong> Ruta graveolens</p>
+  <p><strong>Características:</strong> Folhas verdes azuladas, com odor forte.</p>
+  <p><strong>Uso medicinal:</strong> Usada para cólicas, tênue sedativo e antiparasitário.</p>
+</div>
+  <div class="quiz-container" id="quizContainer"></div>
+    <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAtpZAMDlhAM93viBufUSR1RgcL8v-Vy0l9A&s" alt="Manjericão">
+  <h3>Manjericão</h3>
+       <p><strong>Nome científico:</strong> Ocimum basilicum</p>
+  <p><strong>Características:</strong> Folhas verdes e aromáticas, com flores pequenas roxas ou brancas.</p>
+  <p><strong>Uso medicinal:</strong> Anti-inflamatório e digestivo.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcrUp0pmFeICblrny7CuL4Xj9MlFINknrGpQ&s" alt="Calêndula">
+  <h3>Calêndula </h3>
+  <p><strong>Nome científico:</strong>Calendula officinalis</p>
+  <p><strong>Características:</strong> Flores alaranjadas vistosas.</p>
+  <p><strong>Uso medicinal:</strong> Cicatrizante e anti-inflamatória.</p>
+</div>
+   <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBprp_kIRM0hqr6Gg8MNIWyAGdbPVJArIIjQ&s" alt="Sabugueiro">
+  <h3>Sabugueiro</h3>
+     <p><strong>Nome científico:</strong>Sambucus nigra </p>
+  <p><strong>Características:</strong> Arbusto com flores pequenas e brancas.</p>
+  <p><strong>Uso medicinal:</strong> Antiviral e sudorífico.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj6CYRnj0QwymB5LqyGd7guKW_UtCiKnNgGQ&s" alt="Jaborandi">
+  <h3>Jaborandi</h3>
+  <p><strong>Nome científico:</strong> Pilocarpus microphyllus</p>
+  <p><strong>Características:</strong> Arbusto de folhas compostas e brilhantes.</p>
+  <p><strong>Uso medicinal:</strong> Estimula a produção de saliva e suor.</p>
+</div>
+
+<div class="card">
+  <img src="https://s2-g1.glbimg.com/VwMLWnct_ObBehi5eEjtPUPyjLs=/0x0:1988x1491/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2019/2/R/EIL9G4TOmmz7pKAwmdJw/carqueja-pagina-plantas-do-meu-quintal.jpg" alt="Carqueja">
+  <h3>Carqueja</h3>
+  <p><strong>Nome científico:</strong> Baccharis trimera</p>
+  <p><strong>Características:</strong> Ramos segmentados e amargos.</p>
+  <p><strong>Uso medicinal:</strong> Tônico hepático e digestivo.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTau0NpRhfUKyS54ZDmyeM-Rj2_pOBViDL-g&s" alt="Colônia (Açucena)">
+  <h3>Colônia</h3>
+  <p><strong>Nome científico:</strong> Alpinia zerumbet</p>
+  <p><strong>Características:</strong> Folhas grandes, flores brancas com detalhes rosa e amarelo.</p>
+  <p><strong>Uso medicinal:</strong> Calmante e hipotensora.</p>
+</div>
+    <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ613B4SN0ZrkOSp-N1eeGeNelVvitY8MdojQ&s" alt="Gengibre">
+  <h3>Gengibre</h3>
+      <p><strong>Nome científico:</strong> Zingiber officinale</p>
+  <p><strong>Características:</strong> Rizoma de sabor picante e aroma forte.</p>
+  <p><strong>Uso medicinal:</strong> Anti-inflamatório e digestivo.</p>
+</div>
+
+<div class="card">
+  <img src="https://s2.glbimg.com/zY32MQou7CFi7sLKNida7Ii2rUU=/e.glbimg.com/og/ed/f/original/2016/07/12/alho.jpg" alt="Alho">
+  <h3>Alho</h3>
+  <p><strong>Nome científico:</strong>Allium sativum</p>
+  <p><strong>Características:</strong> Bulbo branco e odor penetrante.</p>
+  <p><strong>Uso medicinal:</strong> Antibiótico natural e vasodilatador.</p>
+</div>
+    
+<div class="card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Curcuma_longa_001.JPG" alt="Açafrão-da-terra">
+  <h3>Açafrão-da-terra</h3>
+  <p> <strong> Nome científico:</strong> Curcuma longa </p>
+  <p><strong>Características:</strong> Rizoma alaranjado e pigmento forte.</p>
+  <p><strong>Uso medicinal:</strong> Anti-inflamatório e antioxidante.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkfMCBKvSH2lmA-5bPbJpUExSdMEt3QBtxsg&s" alt="Mil-folhas">
+  <h3>Mil-folhas</h3>
+  <p><strong>Nome científico:</strong> Achillea millefolium</p>
+  <p><strong>Características:</strong> Folhas finas e flores brancas pequenas.</p>
+  <p><strong>Uso medicinal:</strong> Cicatrizante e anti-inflamatório.</p>
+</div>
+
+<div class="card">
+  <img src="https://s2-ge.glbimg.com/C7rjQOZDV_Wpvt0F2tBDJl72JKI=/0x0:1176x892/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/W/9/eCp4IORtWY60xIO5kG6g/cha-quebra-pedra-phyllanthus-niruri.jpg" alt="Quebra-pedra">
+  <h3>Quebra-pedra</h3>
+  <p><strong>Nome científico:</strong> Phyllanthus niruri</p>
+  <p><strong>Características:</strong> Arbusto de folhas pequenas e delicadas.</p>
+  <p><strong>Uso medicinal:</strong> Diurético e combate cálculos renais.</p>
+</div>
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDV4qpipEDZAiV63L1gokG3aiy8RVGyjtGwg&s" alt="Tanchagem">
+  <h3>Tanchagem</h3>
+  <p><strong>Nome científico:</strong> Plantago major</p>
+  <p><strong>Características:</strong> Folhas largas e nervuras bem marcadas.</p>
+  <p><strong>Uso medicinal:</strong> Anti-inflamatório e cicatrizante.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ_SmpMq1LNv7Bd9oT1Fgg_xiFSWC5A1gSrg&s" alt="Anador">
+  <h3>Anador</h3>
+  <p><strong>Nome científico:</strong> Justicia pectolaris</p>
+  
+  <p><strong>Características:</strong> Folhas ovais com cheiro suave.</p>
+  <p><strong>Uso medicinal:</strong> Analgésico e relaxante muscular.</p>
+</div>
+    
+   <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVF9zH6QKF0bDSAJHlU6vGPGuwHu9rtCt5eg&s" alt="Maracujá">
+  <h3>Maracujá</h3>
+     <p><strong>Nome científico:</strong>Passiflora edulis</p>
+  <p><strong>Características:</strong> Fruto redondo com polpa aromática.</p>
+  <p><strong>Uso medicinal:</strong> Calmante e ansiolítico.</p>
+</div>
+
+<div class="card">
+  <img src="https://www.sitiodamata.com.br/media/catalog/product/cache/80281f1a4d89199560fc0837e49d13da/g/r/graviola-annona-muricata_2nd.webp" alt="Graviola">
+  <h3>Graviola</h3>
+  <p><strong>Nome científico:</strong>Annona muricata</h3>
+  <p><strong>Características:</strong> Fruto grande, espinhoso e polpa branca.</p>
+  <p><strong>Uso medicinal:</strong> Antioxidante e anticancerígeno.</p>
+</div>
+    
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRpC2XldQkmI09GnY9ho_MxoLEASvtuG-HEg&s" alt="Dente-de-leão">
+  <h3>Dente-de-leão</h3>
+  <p><strong>Nome científico:</strong>Taraxacum officinale</h3>
+  <p><strong>Características:</strong> Folhas recortadas e flores amarelas.</p>
+  <p><strong>Uso medicinal:</strong> Diurético e depurativo.</p>
+</div>
+
+<div class="card">
+  <img src="https://www.floresefolhagens.com.br/wp-content/uploads/2018/01/mamona-ricinus-communis-2.jpg" alt="Mamona">
+  <h3>Mamona</h3>
+  <p><strong>Nome científico:</strong>Ricinus communis</h3>
+  <p><strong>Características:</strong> Folhas grandes e frutos espinhosos.</p>
+  <p><strong>Uso medicinal:</strong> Laxante (óleo) e anti-inflamatório.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbTIdFfSNqWSquQtty0pU99V_Ng1JNetnIuw&s" alt="Erva-cidreira">
+  <h3>Erva-cidreira</h3>
+  <p><strong>Nome científico:</strong>Melissa officinalis</h3>
+  <p><strong>Características:</strong> Folhas verdes com leve aroma cítrico.</p>
+  <p><strong>Uso medicinal:</strong> Calmante e digestivo.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-H4TupzrJVIC0i2pzB-3RGuGM_G3R0iHTYg&s" alt="Cássia">
+  <h3>Cássia</h3>
+  <p><strong>Nome científico:</strong>Senna alexandrina</h3>
+  <p><strong>Características:</strong> Arbusto com folhas compostas e flores amarelas.</p>
+  <p><strong>Uso medicinal:</strong> Laxante natural.</p>
+</div>
+
+<div class="card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Starr_010818-0014_Bacopa_monnieri.jpg" alt="Bacopa">
+  <h3>Bacopa</h3>
+  <p><strong>Nome científico:</strong>Bacopa monnieri</h3>
+  <p><strong>Características:</strong> Planta rasteira com pequenas flores lilases.</p>
+  <p><strong>Uso medicinal:</strong> Tônico cerebral e antioxidante.</p>
+</div>
+
+<div class="card">
+  <img src="https://panoramafarmaceutico.com.br/wp-content/uploads/2023/09/Design-sem-nome-2023-09-14T131014.562-696x452.jpg" alt="Poejo">
+  <h3>Poejo</h3>
+  <p><strong>Nome científico:</strong>Plectranthus barbatus</h3>
+  <p><strong>Características:</strong> Folhas aveludadas e odor forte.</p>
+  <p><strong>Uso medicinal:</strong> Expectorante e digestivo.</p>
+</div>
+    
+<div class="card">
+  <img src="https://jpimg.com.br/uploads/2025/02/5-beneficios-da-erva-chapeu-de-couro-para-a-saude-e-como-usa-la.jpg" alt="Chapéu-de-couro">
+  <h3>Chapéu-de-couro</h3>
+  <p><strong>Nome científico:</strong>Echinodorus grandiflorus</h3>
+  <p><strong>Características:</strong> Folhas largas e flores brancas.</p>
+  <p><strong>Uso medicinal:</strong> Diurético e anti-inflamatório.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwExiUD6CRfo2w0wKs-Vl41QWz1rBZsZnSPw&s" alt="Espinheira-santa">
+  <h3>Espinheira-santa</h3>
+  <p><strong>Nome científico:</strong>Maytenus ilicifolia</h3>
+  <p><strong>Características:</strong> Arbusto com folhas serrilhadas.</p>
+  <p><strong>Uso medicinal:</strong> Protetor gástrico e digestivo.</p>
+</div>
+
+<div class="card">
+  <img src="https://hortomedicinal.paginas.ufsc.br/files/2019/12/ATAN%C3%81SIA.jpg" alt="Tanaceto">
+  <h3>Tanaceto</h3>
+  <p><strong>Nome científico:</strong>Tanacetum parhenium</h3>
+  <p><strong>Características:</strong> Pequenas flores brancas em forma de margarida.</p>
+  <p><strong>Uso medicinal:</strong> Analgésico e alívio de enxaquecas.</p>
+</div>
+
+<div class="card">
+  <img src="https://uploads.metroimg.com/wp-content/uploads/2025/03/13160009/picao-preto.jpg" alt="Picão-preto">
+  <h3>Picão-preto</h3>
+  <p><strong>Nome científico:</strong>Bidens pilosa</h3>
+  <p><strong>Características:</strong> Pequenas flores amarelas e folhas opostas.</p>
+  <p><strong>Uso medicinal:</strong> Anti-inflamatório e hepático.</p>
+</div>
+
+<div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbKTVXMp2MoYu02E7fm7HGYSICi6iokhEtA&s" alt="Cavalinha">
+  <h3>Cavalinha</h3>
+  <p><strong>Nome científico:</strong>Esquisetum arvense<h3>
+  <p><strong>Características:</strong> Caule fino e articulado.</p>
+  <p><strong>Uso medicinal:</strong> Diurético e remineralizante.</p>
+</div>
+
+<div class="card">
+  <img src="https://s2-globorural.glbimg.com/Hmd6Nm5yDXjSoK3Jck3RjFMMmH8=/0x0:1280x853/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_afe5c125c3bb42f0b5ae633b58923923/internal_photos/bs/2023/E/L/6qervFTEacr09fuZWGHA/guava-7650529-1280.jpg" alt="Goiabeira">
+  <h3>Goiabera</h3>
+  <p><strong>Nome científico:</strong>Psidium guajava<h3>
+  <p><strong>Características:</strong> Árvore de folhas verdes e frutos doces.</p>
+  <p><strong>Uso medicinal:</strong> Antidiarreico e anti-inflamatório.</p>
+</div>
+    <div class="card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Jurema-preta.jpg" alt="Jurema-preta">
+  <h3>Jurema-preta</h3>
+      <p><strong>Nome científico:</strong>Mimosa tenuiflora</h3>
+  <p><strong>Características:</strong> Arbusto espinhoso de folhas compostas.</p>
+  <p><strong>Uso medicinal:</strong> Cicatrizante e antimicrobiana.</p>
+</div>
+    <div class="card">
+  <img src="https://agro.estadao.com.br/app/uploads/2023/02/word-image-22060-1.jpeg" alt="Mastruz">
+  <h3>Mastruz</h3>
+      <p><strong>Nome científico:</strong>Dysphania ambrosioides</h3>
+  <p><strong>Características:</strong> Erva aromática de folhas dentadas.</p>
+  <p><strong>Uso medicinal:</strong> Vermífuga e expectorante.</p>
+</div>
+    <div class="card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6p-XdXIK1ON_C3nRKaG-6BnxxKz_ezNZ4tw&s" alt="Cajueiro">
+  <h3>Cajueiro</h3>
+  <p><strong>Nome científico:</strong> Anacardium occidentale</p>
+  <p><strong>Características:</strong> Árvore de porte médio com copa larga, folhas verdes brilhantes e flores pequenas. Produz o caju, fruto composto pela castanha e pelo pseudofruto carnoso.</p>
+  <p><strong>Uso medicinal:</strong> As folhas e cascas são adstringentes, usadas em infecções da garganta e pele; a castanha tem propriedades antioxidantes.</p>
+</div>
+
+ <footer id="footerDev" style="background-color: #388e3c; color: white; padding: 10px 0; margin: 30px auto 0; text-align: center; max-width: 500px; border-radius: 10px;">
+  <h2 style="font-size: 20px; margin-bottom: 10px;">Desenvolvedores:</h2>
+  <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+    <a href="https://github.com/alicertx" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <img src="https://github.com/alicertx.png" alt="alicertx" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid white;">
+      <span style="font-size: 16px;">alicertx</span>
+    </a>
+    <a href="https://github.com/cleytooliveira" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <img src="https://github.com/cleytooliveira.png" alt="cleytooliveira" style="width: 35px; height: 35px; border-radius: 50%; border: 2px solid white;">
+      <span style="font-size: 16px;">cleytooliveira</span>
+    </a>
+  </div>
+</footer>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
