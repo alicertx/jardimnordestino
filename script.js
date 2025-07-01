@@ -166,7 +166,6 @@ function showPlants() {
   document.getElementById('plantCards').style.display = 'block';
   document.getElementById('quizContainer').style.display = 'none';
   document.getElementById('difficultyOptions').style.display = 'none';
-  
   document.getElementById('footerDev').style.display = 'none';
 }
 
@@ -181,12 +180,20 @@ function startQuiz(difficulty) {
   currentDifficulty = difficulty;
   currentQuestionIndex = 0;
   score = 0;
-  
+
   document.getElementById('footerDev').style.display = 'none';
   document.getElementById('plantCards').style.display = 'none';
   document.getElementById('difficultyOptions').style.display = 'none';
   quizContainer.style.display = 'block';
   showQuestion();
+}
+
+// 🔁 Função para embaralhar as alternativas
+function shuffleArray(array) {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
 }
 
 function showQuestion() {
@@ -196,36 +203,19 @@ function showQuestion() {
     return;
   }
 
+  const shuffledOptions = shuffleArray([...q.options]);
+
   quizContainer.innerHTML = `
     <div class="quiz-card">
       <div class="question">${q.question}</div>
       <div class="options">
-        ${q.options.map(option => `
+        ${shuffledOptions.map(option => `
           <div class="option" onclick="selectAnswer(this, '${option}')">${option}</div>
         `).join('')}
       </div>
     </div>
   `;
 }
-
-  function showQuestion() {
-  const q = questions[currentDifficulty][currentQuestionIndex];
-  if (!q) {
-    showResult();
-    return;
-  }
-
-  quizContainer.innerHTML = `
-    <div class="quiz-card">
-      <div class="question">${q.question}</div>
-      <div class="options">
-        ${q.options.map(option => `
-          <div class="option" onclick="selectAnswer(this, '${option}')">${option}</div>
-        `).join('')}
-      </div>
-    </div>
-  `;
-  }
 
 function selectAnswer(el, selected) {
   const correct = questions[currentDifficulty][currentQuestionIndex].answer;
