@@ -190,4 +190,37 @@ width: 80px;
 margin-top: 10px;
 }
 
+@media (max-width: 767px) {
+  /* Botões iguais */
+  .btn-container button {
+    width: 200px !important;
+    padding: 10px 15px !important;
+    font-size: 16px !important;
+  }
+
+  /* Card dos desenvolvedores ainda menor */
+  #footerDev {
+    max-width: 80% !important;
+    padding: 5px 0 !important;
+    font-size: 12px !important;
+    border-radius: 8px !important;
+  }
+
+  #footerDev h2 {
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+  }
+
+  #footerDev img {
+    width: 24px !important;
+    height: 24px !important;
+    border-width: 1px !important;
+  }
+
+  #footerDev span {
+    font-size: 12px !important;
+  }
+}
+
+
 
