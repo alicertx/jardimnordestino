@@ -190,17 +190,4 @@ width: 80px;
 margin-top: 10px;
 }
 
-/* Correções para centralizar os botões e o card dos desenvolvedores */
-.btn-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-#footerDev {
-  margin: 30px auto 0;
-  text-align: center;
-}
 
